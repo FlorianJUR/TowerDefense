@@ -1,0 +1,11 @@
+{
+  "name": "Level1",
+  "rows": [
+    "S........B",
+    "BBBBBBBB.B",
+    "B........B",
+    "B.BBBBBBBB",
+    "B........X"
+  ],
+  "legend": { "S": "spawn", "X": "base", ".": "path", "B": "Buildable" }
+}
