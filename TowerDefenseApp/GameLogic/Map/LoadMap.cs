@@ -36,5 +36,5 @@ public class LoadMap
 // MapData for reading .json
 public class MapData
 {
-    public List<string> rows = new List<string>();
+    public List<string> rows { get; set; } = new List<string>();
 }
