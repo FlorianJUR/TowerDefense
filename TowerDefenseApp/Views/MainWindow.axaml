@@ -6,17 +6,36 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="TowerDefenseApp.Views.MainWindow"
         x:DataType="vm:MainViewModel"
+        x:CompileBindings="False"
         Icon="/Assets/avalonia-logo.ico"
         Title="TowerDefenseApp">
 
     <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainViewModel />
     </Design.DataContext>
 
-    <TextBox Text="{Binding Greeting}"
-             HorizontalAlignment="Center"
-             VerticalAlignment="Center" />
+    <ItemsControl ItemsSource="{Binding tilesview}">
+
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <Canvas />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+
+        <ItemsControl.Styles>
+            <Style Selector="ItemsControl > ContentPresenter">
+                <Setter Property="Canvas.Left" Value="{Binding posX}" />
+                <Setter Property="Canvas.Top" Value="{Binding posY}" />
+            </Style>
+        </ItemsControl.Styles>
+
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Rectangle Width="{Binding width}"
+                           Height="{Binding height}"
+                           Fill="{Binding color}" />
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
 
 </Window>
