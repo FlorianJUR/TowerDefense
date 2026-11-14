@@ -11,6 +11,11 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
+  <!--maps copied in the executable file-->
+  <ItemGroup>
+  <Content Include="Database\Maps\*.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="12.1.6" />
     <PackageReference Include="Avalonia.Desktop" Version="12.1.6" />
