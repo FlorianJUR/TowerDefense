@@ -32,3 +32,9 @@ public class LoadMap
         return tileslist;
     }
 }
+
+// MapData for reading .json
+public class MapData
+{
+    public List<string> rows = new List<string>();
+}
