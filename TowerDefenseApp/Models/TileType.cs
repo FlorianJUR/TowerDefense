@@ -5,6 +5,6 @@ public enum TileType
 {
     Base = 'X',
     Buildable = 'B',
-    Path = '.',
+    Track = '.',
     Spawn = 'S'
 }

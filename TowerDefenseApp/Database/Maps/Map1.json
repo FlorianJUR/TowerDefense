@@ -7,5 +7,5 @@
     "B.BBBBBBBB",
     "B........X"
   ],
-  "legend": { "S": "spawn", "X": "base", ".": "path", "B": "Buildable" }
+  "legend": { "S": "spawn", "X": "base", ".": "track", "B": "Buildable" }
 }
