@@ -13,29 +13,35 @@
     <Design.DataContext>
         <vm:MainViewModel />
     </Design.DataContext>
+    
+    <Grid>
+        <ItemsControl ItemsSource="{Binding tilesview}">
 
-    <ItemsControl ItemsSource="{Binding tilesview}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
 
-        <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-                <Canvas />
-            </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
+            <ItemsControl.Styles>
+                <Style Selector="ItemsControl > ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding posX}" />
+                    <Setter Property="Canvas.Top" Value="{Binding posY}" />
+                </Style>
+            </ItemsControl.Styles>
 
-        <ItemsControl.Styles>
-            <Style Selector="ItemsControl > ContentPresenter">
-                <Setter Property="Canvas.Left" Value="{Binding posX}" />
-                <Setter Property="Canvas.Top" Value="{Binding posY}" />
-            </Style>
-        </ItemsControl.Styles>
-
-        <ItemsControl.ItemTemplate>
-            <DataTemplate>
-                <Rectangle Width="{Binding width}"
-                           Height="{Binding height}"
-                           Fill="{Binding color}" />
-            </DataTemplate>
-        </ItemsControl.ItemTemplate>
-    </ItemsControl>
-
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Rectangle Width="{Binding width}"
+                            Height="{Binding height}"
+                            Fill="{Binding color}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <TextBlock Text="{Binding TimeText}"
+                FontSize="20"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="10" />
+    </Grid>
 </Window>
