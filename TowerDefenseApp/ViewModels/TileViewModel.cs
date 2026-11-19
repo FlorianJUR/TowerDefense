@@ -10,7 +10,7 @@ public class TileViewModel
     public double width { get; set; }
     public double height { get; set; }
     public string color { get; set; }
-    public const int size = 64; 
+    public const int size = 32; 
     public TileViewModel(Tile tile)
     {
         // tile size
