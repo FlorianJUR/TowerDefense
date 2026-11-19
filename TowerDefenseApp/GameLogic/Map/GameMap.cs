@@ -59,7 +59,6 @@ public class GameMap
             else if (IsNextTile(down, path)) path.Add(down);
             else if (IsNextTile(left, path)) path.Add(left);
             else if (IsNextTile(right, path)) path.Add(right);
-            else throw new System.Exception("Chemin coupé : impossible d'atteindre la base");
         }
 
         return path;
