@@ -38,6 +38,11 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+        <Canvas>
+            <Ellipse Width="20" Height="20" Fill="Black"
+                    Canvas.Left="{Binding EnemyX}"
+                    Canvas.Top="{Binding EnemyY}" />
+        </Canvas>
         <TextBlock Text="{Binding TimeText}"
                 FontSize="20"
                 HorizontalAlignment="Right"

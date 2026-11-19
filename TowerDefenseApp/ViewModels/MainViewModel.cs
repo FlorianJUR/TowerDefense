@@ -13,11 +13,16 @@ public partial class MainViewModel : ViewModelBase
 {
     public List<TileViewModel> tilesview { get; set; } = new List<TileViewModel>();
 
-    public GameEngine engine = new GameEngine();
+    public GameEngine engine;
     public DispatcherTimer timer = new DispatcherTimer();
 
     [ObservableProperty]
     private string timeText = "Temps : 0.0 s";
+
+    [ObservableProperty]
+    private double enemyX;
+    [ObservableProperty]
+    private double enemyY;
 
     public MainViewModel()
     {
@@ -32,6 +37,8 @@ public partial class MainViewModel : ViewModelBase
             tilesview.Add(new TileViewModel(tile));
         }
 
+        engine = new GameEngine(map);
+
         // start the game loop 1s/60fps = 16ms
         timer.Interval = TimeSpan.FromMilliseconds(16);
         timer.Tick += OnTick;
@@ -41,5 +48,9 @@ public partial class MainViewModel : ViewModelBase
     {
         engine.Update(0.016);
         TimeText = "Temps : " + engine.time.ToString("F1") + " s";
+
+        int enemySize = 20;
+        EnemyX = engine.Enemy.X * TileViewModel.size + (TileViewModel.size - enemySize) / 2;
+        EnemyY = engine.Enemy.Y * TileViewModel.size + (TileViewModel.size - enemySize) / 2;
     }
 }
