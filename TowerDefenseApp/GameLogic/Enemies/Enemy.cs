@@ -8,11 +8,11 @@ public class Enemy
     // in tile position
     public double X;
     public double Y;
-    public double Speed = 2;
+    public double Speed = 10;
 
     public bool ReachedBase = false;
     private List<Tile> path;
-    private int targetIndex = 1;   // numéro de la case visée
+    private int targetIndex = 1;
 
     // constructor: get on the spawn tile
     public Enemy(List<Tile> path)
