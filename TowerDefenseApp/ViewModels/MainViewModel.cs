@@ -18,6 +18,8 @@ public partial class MainViewModel : ViewModelBase
 
     [ObservableProperty]
     private string timeText = "Temps : 0.0 s";
+    [ObservableProperty]
+    private string healthText = "Base : 10 PV";
 
     [ObservableProperty]
     private double enemyX;
@@ -48,6 +50,7 @@ public partial class MainViewModel : ViewModelBase
     {
         engine.Update(0.016);
         TimeText = "Temps : " + engine.time.ToString("F1") + " s";
+        HealthText = "Base : " + engine.gamebase.Health + " PV";
 
         int enemySize = 20;
         EnemyX = engine.Enemy.X * TileViewModel.size + (TileViewModel.size - enemySize) / 2;
