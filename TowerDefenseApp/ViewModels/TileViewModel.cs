@@ -10,12 +10,10 @@ public class TileViewModel
     public double width { get; set; }
     public double height { get; set; }
     public string color { get; set; }
-
+    public const int size = 64; 
     public TileViewModel(Tile tile)
     {
         // tile size
-        int size = 64; 
-
         posX = tile.Column * size;
         posY = tile.Row * size;
         width = size;
