@@ -9,8 +9,10 @@ public class Enemy
     public double X;
     public double Y;
     public double Speed = 10;
+    public int Health = 5;
 
     public bool ReachedBase = false;
+    public bool EnemyDead = false;
     private List<Tile> path;
     private int targetIndex = 1;
 
@@ -46,6 +48,17 @@ public class Enemy
             {
                 ReachedBase = true;
             }
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Health = Health - damage;
+
+        if (Health <= 0)
+        {
+            Health = 0;
+            EnemyDead = true;
         }
     }
 }

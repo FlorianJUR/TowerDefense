@@ -15,21 +15,19 @@
     </Design.DataContext>
     
     <Grid>
+    <!--tiles-->
         <ItemsControl ItemsSource="{Binding tilesview}">
-
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-
             <ItemsControl.Styles>
                 <Style Selector="ItemsControl > ContentPresenter">
                     <Setter Property="Canvas.Left" Value="{Binding posX}" />
                     <Setter Property="Canvas.Top" Value="{Binding posY}" />
                 </Style>
             </ItemsControl.Styles>
-
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Rectangle Width="{Binding width}"
@@ -38,6 +36,54 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+
+    <!--towers range-->
+        <ItemsControl ItemsSource="{Binding towersview}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.Styles>
+                <Style Selector="ItemsControl > ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding rangeX}" />
+                    <Setter Property="Canvas.Top" Value="{Binding rangeY}" />
+                </Style>
+            </ItemsControl.Styles>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Ellipse Width="{Binding rangeDiameter}"
+                            Height="{Binding rangeDiameter}"
+                            Fill="#11ffffff"
+                            Stroke="#44ffffff"
+                            StrokeThickness="1" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+    <!--towers-->
+        <ItemsControl ItemsSource="{Binding towersview}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.Styles>
+                <Style Selector="ItemsControl > ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding posX}" />
+                    <Setter Property="Canvas.Top" Value="{Binding posY}" />
+                </Style>
+            </ItemsControl.Styles>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Rectangle Width="{Binding width}"
+                            Height="{Binding height}"
+                            Fill="{Binding color}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    
+    <!--enemy-->
         <Canvas>
             <Ellipse Width="20" Height="20" Fill="Black"
                     Canvas.Left="{Binding EnemyX}"
