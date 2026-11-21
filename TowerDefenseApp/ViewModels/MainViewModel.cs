@@ -6,23 +6,27 @@ using TowerDefenseApp.Models;
 using TowerDefenseApp.GameLogic.Engine;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
+using TowerDefenseApp.GameLogic.Towers;
 
 namespace TowerDefenseApp.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
     public List<TileViewModel> tilesview { get; set; } = new List<TileViewModel>();
+    public List<TowerViewModel> towersview { get; set; } = new List<TowerViewModel>();
 
     public GameEngine engine;
     public DispatcherTimer timer = new DispatcherTimer();
 
     [ObservableProperty]
     private string timeText = "Temps : 0.0 s";
+
     [ObservableProperty]
     private string healthText = "Base : 10 PV";
 
     [ObservableProperty]
     private double enemyX;
+    
     [ObservableProperty]
     private double enemyY;
 
@@ -40,6 +44,11 @@ public partial class MainViewModel : ViewModelBase
         }
 
         engine = new GameEngine(map);
+
+        foreach (Tower tower in engine.Towers)
+        {
+            towersview.Add(new TowerViewModel(tower));
+        }
 
         // start the game loop 1s/60fps = 16ms
         timer.Interval = TimeSpan.FromMilliseconds(16);
