@@ -17,11 +17,13 @@ public class GameEngine
     public GameBase gamebase = new GameBase();
     private List<Tile> path;
 
+    private GameMap map;
+
     public GameEngine(GameMap map)
     {
+        this.map = map;
         path = map.GetPath();
         Enemy = new Enemy(path);
-        Towers.Add(new Tower(0,4)); // hard coded tower positon for testing
     }
 
     // call update every tick
@@ -45,5 +47,28 @@ public class GameEngine
         {
             tower.Update(deltaTime, Enemy);
         }
+    }
+
+    public bool CanBuild(int row, int column)
+    {
+        Tile tile = map.GetTile(row, column);
+        if (tile.Type != TileType.Buildable)
+        {
+            return false;
+        }
+        foreach (Tower tower in Towers)
+        {
+            if (tower.Row == row && tower.Column == column)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public Tower BuildTower(int row, int column)
+    {
+        Tower newTower = new Tower(row, column);
+        Towers.Add(newTower);
+        return newTower;
     }
 }
