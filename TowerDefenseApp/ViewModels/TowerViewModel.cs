@@ -14,7 +14,7 @@ public class TowerViewModel
     // for the range
     public double rangeX { get; set; }
     public double rangeY { get; set; }
-    public double rangeSize { get; set;}    //diameter needed for the view
+    public double rangeDiameter { get; set;}
 
     public TowerViewModel(Tower tower)
     {
@@ -31,10 +31,10 @@ public class TowerViewModel
         double centerX = tower.Column * TileViewModel.size + TileViewModel.size / 2.0;
         double centerY = tower.Row * TileViewModel.size + TileViewModel.size / 2.0;
 
-        rangeSize = tower.Range * 2 * TileViewModel.size;
+        rangeDiameter = tower.Range * 2 * TileViewModel.size;
 
-        rangeX = centerX - rangeSize/2;
-        rangeY = centerY - rangeSize/2;
+        rangeX = centerX - rangeDiameter/2;
+        rangeY = centerY - rangeDiameter/2;
 
     }
 }

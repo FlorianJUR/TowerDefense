@@ -52,8 +52,8 @@
             </ItemsControl.Styles>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Ellipse Width="{Binding rangeSize}"
-                            Height="{Binding rangeSize}"
+                    <Ellipse Width="{Binding rangeDiameter}"
+                            Height="{Binding rangeDiameter}"
                             Fill="#11ffffff"
                             Stroke="#44ffffff"
                             StrokeThickness="1" />
