@@ -29,7 +29,7 @@ public partial class MainViewModel : ViewModelBase
     [ObservableProperty] private bool isTileSelected = false;
     [ObservableProperty] private double selectedX;
     [ObservableProperty] private double selectedY;
-    [ObservableProperty] private string messageText = "Click sur une case verte pour lacer une tour";
+    [ObservableProperty] private string messageText = "Click sur une case verte pour construire une tour";
 
     [ObservableProperty] private string timeText = "Temps : 0.0 s";
     [ObservableProperty] private string healthText = "Base : 10 PV";
@@ -87,13 +87,13 @@ public partial class MainViewModel : ViewModelBase
     {
         if (IsTileSelected == false)
         {
-            MessageText = "Select a tile first";
+            MessageText = "Veuillez sélectionner une case";
             return;
         }
 
         if (engine.CanBuild(selectedRow, selectedColumn) == false)
         {
-            MessageText = "Cannot build here";
+            MessageText = "Terrain inconstructible";
             return;
         }
 
@@ -104,6 +104,6 @@ public partial class MainViewModel : ViewModelBase
     {
         Tower tower = engine.BuildTower(selectedRow, selectedColumn);
         towersview.Add(new TowerViewModel(tower));
-        MessageText = "Tower built!";
+        MessageText = "Tour contruite";
     }
 }
