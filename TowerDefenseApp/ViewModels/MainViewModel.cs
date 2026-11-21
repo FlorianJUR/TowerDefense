@@ -58,7 +58,7 @@ public partial class MainViewModel : ViewModelBase
     public void OnTick(object? sender, EventArgs e)
     {
         engine.Update(0.016);
-        TimeText = "Temps : " + engine.time.ToString("F1") + " s";
+        TimeText = "Temps : " + engine.time.ToString("F1") + " s, Enemy health:" + engine.Enemy.Health + " PV";
         HealthText = "Base : " + engine.gamebase.Health + " PV";
 
         int enemySize = 20;
