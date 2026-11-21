@@ -28,10 +28,22 @@ public class GameEngine
     public void Update(double deltaTime)
     {
         time = time + deltaTime;
+
         Enemy.Update(deltaTime);
-        if (Enemy.ReachedBase)
+        
+        if (Enemy.EnemyDead)
+        {
+            Enemy = new Enemy(path);
+        }
+        else if (Enemy.ReachedBase)
         {
             gamebase.TakeDamage(1);
+            Enemy = new Enemy(path);
+        }
+
+        foreach (Tower tower in Towers)
+        {
+            tower.Update(deltaTime, Enemy);
         }
     }
 }
