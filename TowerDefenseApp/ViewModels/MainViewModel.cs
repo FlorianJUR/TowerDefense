@@ -85,23 +85,25 @@ public partial class MainViewModel : ViewModelBase
     }
     public void BuildTower()
     {
-        bool canBuild = engine.CanBuild(selectedRow, selectedColumn);
-
         if (IsTileSelected == false)
         {
-            MessageText = "Veuillez selectionner une case";
+            MessageText = "Select a tile first";
             return;
         }
 
-        if (canBuild == false)
+        if (engine.CanBuild(selectedRow, selectedColumn) == false)
         {
-            MessageText = "Terrain non batissable";
+            MessageText = "Cannot build here";
             return;
         }
-        else
-        {
-            Tower tower = engine.BuildTower(selectedRow, selectedColumn);
-            towersview.Add(new TowerViewModel(tower));
-        }
+
+        AddTower();
+    }
+
+    private void AddTower()
+    {
+        Tower tower = engine.BuildTower(selectedRow, selectedColumn);
+        towersview.Add(new TowerViewModel(tower));
+        MessageText = "Tower built!";
     }
 }
