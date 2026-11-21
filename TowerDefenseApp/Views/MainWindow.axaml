@@ -38,6 +38,29 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+
+        <ItemsControl ItemsSource="{Binding towersview}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.Styles>
+                <Style Selector="ItemsControl > ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding posX}" />
+                    <Setter Property="Canvas.Top" Value="{Binding posY}" />
+                </Style>
+            </ItemsControl.Styles>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Rectangle Width="{Binding width}"
+                            Height="{Binding height}"
+                            Fill="{Binding color}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         <Canvas>
             <Ellipse Width="20" Height="20" Fill="Black"
                     Canvas.Left="{Binding EnemyX}"
