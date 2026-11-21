@@ -83,5 +83,25 @@ public partial class MainViewModel : ViewModelBase
     IsTileSelected = true;
     MessageText = "Case sélectionnée";
     }
+    public void BuildTower()
+    {
+        bool canBuild = engine.CanBuild(selectedRow, selectedColumn);
 
+        if (IsTileSelected == false)
+        {
+            MessageText = "Veuillez selectionner une case";
+            return;
+        }
+
+        if (canBuild == false)
+        {
+            MessageText = "Terrain non batissable";
+            return;
+        }
+        else
+        {
+            Tower tower = engine.BuildTower(selectedRow, selectedColumn);
+            towersview.Add(new TowerViewModel(tower));
+        }
+    }
 }
