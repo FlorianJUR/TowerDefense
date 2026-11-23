@@ -8,7 +8,7 @@ public class Enemy
     // in tile position
     public double X;
     public double Y;
-    public double Speed = 10;
+    public double Speed = 3;
     public int Health = 5;
 
     public bool ReachedBase = false;
