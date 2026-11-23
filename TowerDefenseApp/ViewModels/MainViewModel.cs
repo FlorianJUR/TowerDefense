@@ -75,13 +75,13 @@ public partial class MainViewModel : ViewModelBase
 
     public void SelectTile(TileViewModel tile)
     {
-    selectedRow = tile.row;
-    selectedColumn = tile.column;
+        selectedRow = tile.row;
+        selectedColumn = tile.column;
 
-    SelectedX = tile.column * TileViewModel.size;
-    SelectedY = tile.row * TileViewModel.size;
-    IsTileSelected = true;
-    MessageText = "Case sélectionnée";
+        SelectedX = tile.column * TileViewModel.size;
+        SelectedY = tile.row * TileViewModel.size;
+        IsTileSelected = true;
+        MessageText = "Case sélectionnée";
     }
     public void BuildTower()
     {
